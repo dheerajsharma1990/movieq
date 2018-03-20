@@ -6,16 +6,14 @@ class Variable[T](variable: T) {
     new Expression(variable + " equalTo " + other)
   }
 
+  override def toString: String = variable.toString
+
 }
 
 object Variable extends App {
   implicit def stringToVariable(string: String) = new Variable(string)
-
   implicit def intToVariable(int: Int) = new Variable(int)
 
-  val abc = new Variable("abc")
-  val pqr = new Variable("pqr")
-  val movieId = 214
-  (("abc" equalTo "mno") and (movieId equalTo 4)) or ("dheeraj" equalTo "sharma")
+  println((("abc" equalTo "mno") and (1 equalTo 4)) or ("dheeraj" equalTo "sharma"))
 
 }
