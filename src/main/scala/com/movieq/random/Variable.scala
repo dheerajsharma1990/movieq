@@ -7,13 +7,5 @@ class Variable[T](variable: T) {
   }
 
   override def toString: String = variable.toString
-
 }
 
-object Variable extends App {
-  implicit def stringToVariable(string: String) = new Variable(string)
-  implicit def intToVariable(int: Int) = new Variable(int)
-
-  println((("abc" equalTo "mno") and (1 equalTo 4)) or ("dheeraj" equalTo "sharma"))
-
-}
