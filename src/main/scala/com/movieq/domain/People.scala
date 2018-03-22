@@ -1,5 +1,5 @@
 package com.movieq.domain
 
-class People(val id: Int, val name: String, val age: Int) {
+class People(id: Int, name: String, age: Int) extends DomainObject {
 
 }

@@ -1,16 +1,7 @@
 package com.movieq.domain
 
-class Movie(val id: Int, val title: String) {
+class Movie(id: Int, title: String, description: String, rating: Double, people: List[People],
+            genre: List[Genre], productionCountry: ProductionCountry) extends DomainObject {
 
-  def wordsInTitle(): Int = {
-    title.split(" ").length
-  }
-
-  def hasSameTitleLength(movie: Movie): Boolean = {
-    title.length == movie.title.length
-  }
-
-  override def toString: String = {
-    "Id: " + id + " Title: " + title
-  }
 }
+
