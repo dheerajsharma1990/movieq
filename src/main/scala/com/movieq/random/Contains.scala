@@ -1,6 +1,6 @@
 package com.movieq.random
 
-class ContainsOperator(identifier: String, value: Any) extends BinaryOperator(identifier, value) {
+case class Contains(identifier: String, value: Any) extends BinaryOperator(identifier, value) {
 
   override def string(): String = "(" + identifier + " contains " + value + ")"
 }
