@@ -1,6 +1,6 @@
 package com.movieq.random
 
-case class Is(identifier: String, value: Any) extends Expression {
+case class Is[T](identifier: T, value: T) extends Expression {
 
   override def string(): String = "(" + identifier + " is " + value + ")"
 

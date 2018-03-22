@@ -1,16 +1,16 @@
 package com.movieq.random
 
-case class Identifier(identifier: String) {
+case class Identifier[T](identifier: String) {
 
-  def is(value: Any): Expression = {
+  def is(value: T): Expression = {
     Is(identifier, value)
   }
 
-  def greaterThen(value: Any): Expression = {
+  def greaterThen(value: T): Expression = {
     GreaterThen(identifier, value)
   }
 
-  def contains(value: Any): Expression = {
+  def contain(value: T): Expression = {
     Contains(identifier, value)
   }
 
