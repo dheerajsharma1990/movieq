@@ -1,13 +1,12 @@
 package com.movieq.random
 
 object Main extends App {
+
+  def i(string: String): Identifier = Identifier(string)
+
   println(
-    And(
-      Or(
-        Is("id", 124),
-        GreaterThen("rating", 7.2)
-      ),
-      Contains("people.name", "Salman Khan")
-    ).string()
+    i("id").is(124).or(i("rating").greaterThen(7.2).or(i("productionCountry").is("someProductionCountry")))
+      .and(i("people.name").contains("Salman Khan")).string()
+
   )
 }
