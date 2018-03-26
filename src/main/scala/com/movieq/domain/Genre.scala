@@ -1,5 +1,5 @@
 package com.movieq.domain
 
-class Genre(id: Int, name: String) extends DomainObject {
+class Genre(val id: Int, val name: String) extends DomainObject {
 
 }

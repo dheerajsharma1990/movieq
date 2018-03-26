@@ -1,7 +1,10 @@
 package com.movieq.domain
 
-class Movie(id: Int, title: String, description: String, rating: Double, people: List[People],
-            genre: List[Genre], productionCountry: ProductionCountry) extends DomainObject {
+class Movie(val id: Int, val title: String, val description: String, val rating: Double, val people: List[People],
+            val genre: List[Genre], val productionCountry: ProductionCountry) extends DomainObject {
+
+
+  
 
 }
 
