@@ -10,7 +10,7 @@ case class Identifier[T](identifier: String) {
     GreaterThen(identifier, value)
   }
 
-  def contain(value: T): Expression = {
+  def contains(value: T): Expression = {
     Contains(identifier, value)
   }
 
