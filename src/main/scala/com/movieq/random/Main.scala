@@ -1,5 +1,7 @@
 package com.movieq.random
 
+import java.time.LocalDate
+
 import com.movieq.domain.{People, ProductionCountry}
 
 import scala.language.dynamics
@@ -9,19 +11,23 @@ object Main {
   class MovieQuery {
 
     def id: Identifier[Int] = {
-      Identifier[Int]("id")
+      Identifier[Int]("movie.id")
     }
 
     def rating: Identifier[Double] = {
-      Identifier[Double]("rating")
+      Identifier[Double]("movie.rating")
     }
 
     def productionCountry: Identifier[ProductionCountry] = {
-      Identifier[ProductionCountry]("productionCountry")
+      Identifier[ProductionCountry]("movie.productionCountry")
     }
 
     def people: ListIdentifier[People] = {
-      ListIdentifier[People]("people")
+      ListIdentifier[People]("movie.people")
+    }
+
+    def releaseDate: Identifier[LocalDate] = {
+      Identifier[LocalDate]("movie.releaseDate")
     }
 
   }
@@ -32,15 +38,19 @@ object Main {
     }
   }
 
+
   def main(args: Array[String]) {
 
     val movie = new MovieQuery
     val people = new PeopleQuery
 
-      movie.id.is(124)
-        .or(movie.rating.greaterThen(7.2)
-            .or(movie.productionCountry.is(new ProductionCountry("US", "America"))))
-        .and(people.name.contains("Salman Khan").or(movie.people.contains(new People(1, "Shahrukh", 52)))
-        ).string()
+    val prefix = "search movies where "
+
+    println(prefix + movie.id.is(124)
+      .or(movie.rating.greaterThen(7.2)
+        .or(movie.productionCountry.is(new ProductionCountry("US", "America"))))
+      .and(people.name.contains("Salman Khan").or(movie.people.contains(new People(1, "Shahrukh", 52))))
+      .or(movie.releaseDate.between(LocalDate.now().minusYears(1), LocalDate.now()))
+      .string())
   }
 }
