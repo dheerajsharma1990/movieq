@@ -26,10 +26,41 @@ object Main {
       ListIdentifier[People]("movie.people")
     }
 
-    def releaseDate: Identifier[LocalDate] = {
+    def releaseDate(): Identifier[LocalDate] = {
       Identifier[LocalDate]("movie.releaseDate")
     }
 
+  }
+
+  class MovieqOperations {
+
+    def search(): Search = {
+      new Search
+    }
+
+
+    def insert(): String = {
+      "insert"
+    }
+  }
+
+  class Search {
+
+    def movies(): Where = {
+      new Where("search movies")
+    }
+
+  }
+
+  class Where(val name: String) {
+
+    def where(expression: Expression): String =  {
+      name + " where " + expression.string()
+    }
+  }
+
+  def movieq(): MovieqOperations = {
+    new MovieqOperations
   }
 
   class PeopleQuery {
@@ -44,13 +75,11 @@ object Main {
     val movie = new MovieQuery
     val people = new PeopleQuery
 
-    val prefix = "search movies where "
-
-    println(prefix + movie.id.is(124)
+    println(movieq().search().movies().where(movie.id.is(124)
       .or(movie.rating.greaterThen(7.2)
         .or(movie.productionCountry.is(new ProductionCountry("US", "America"))))
       .and(people.name.contains("Salman Khan").or(movie.people.contains(new People(1, "Shahrukh", 52))))
-      .or(movie.releaseDate.between(LocalDate.now().minusYears(1), LocalDate.now()))
-      .string())
+      .or(movie.releaseDate().between(LocalDate.now().minusYears(1), LocalDate.now()))
+    ))
   }
 }
