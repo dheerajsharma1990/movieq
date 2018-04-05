@@ -69,13 +69,26 @@ object Main {
     }
   }
 
-
+  /**
+    * S -> "SEARCH" T
+    * T -> ( "MOVIES" | "GENRE" | "PEOPLE" ) W
+    * W ->  "WHERE" E
+    * E -> "(" E "OR" E ")" | "(" E "AND" E ")" | X
+    * X -> V "IS" V | V "IS NOT" V | V "CONTAINS" V
+    * V -> "<STRING>"
+    *
+    * search movies where "id" is "124"
+    * search people where ( ("id" is not "124") or ("name" contains "pqr") )
+    *
+    * @param args
+    */
   def main(args: Array[String]) {
 
     val movie = new MovieQuery
     val people = new PeopleQuery
 
-    println(movieq().search().movies().where(movie.id.is(124)
+    println(movieq().search().movies().where(
+      movie.id.is(124)
       .or(movie.rating.greaterThen(7.2)
         .or(movie.productionCountry.is(new ProductionCountry("US", "America"))))
       .and(people.name.contains("Salman Khan").or(movie.people.contains(new People(1, "Shahrukh", 52))))
