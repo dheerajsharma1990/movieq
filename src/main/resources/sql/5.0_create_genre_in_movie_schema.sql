@@ -1,0 +1,1 @@
+create table GenreInMovie (movie_id int, genre_id int, primary key (movie_id, genre_id));

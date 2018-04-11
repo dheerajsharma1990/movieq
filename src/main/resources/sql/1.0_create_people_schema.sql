@@ -1,0 +1,1 @@
+create table People (id int, name varchar(255), age int, primary key (id));

@@ -1,0 +1,1 @@
+create table PeopleInMovie (movie_id int, people_id int, primary key (movie_id, people_id));

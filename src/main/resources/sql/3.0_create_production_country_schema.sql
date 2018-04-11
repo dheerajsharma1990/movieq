@@ -1,0 +1,1 @@
+create table ProductionCountry (code varchar(50), name varchar(255), primary key (code));
