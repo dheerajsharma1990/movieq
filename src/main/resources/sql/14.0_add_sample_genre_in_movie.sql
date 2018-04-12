@@ -1,0 +1,14 @@
+insert into GenreInMovie (movie_id, genre_id) values (297222, 35);
+insert into GenreInMovie (movie_id, genre_id) values (297222, 18);
+insert into GenreInMovie (movie_id, genre_id) values (297222, 878);
+insert into GenreInMovie (movie_id, genre_id) values (376812, 18);
+insert into GenreInMovie (movie_id, genre_id) values (376812, 28);
+insert into GenreInMovie (movie_id, genre_id) values (14163, 18);
+insert into GenreInMovie (movie_id, genre_id) values (21614, 35);
+insert into GenreInMovie (movie_id, genre_id) values (127501, 18);
+insert into GenreInMovie (movie_id, genre_id) values (127501, 10749);
+insert into GenreInMovie (movie_id, genre_id) values (127501, 35);
+insert into GenreInMovie (movie_id, genre_id) values (325138, 18);
+insert into GenreInMovie (movie_id, genre_id) values (325138, 35);
+insert into GenreInMovie (movie_id, genre_id) values (325138, 10751);
+insert into GenreInMovie (movie_id, genre_id) values (325138, 10749);

@@ -25,7 +25,7 @@ public class H2Runner {
                                 .forEach(sql -> {
                                     try {
                                         PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                                        boolean executionResult = preparedStatement.execute();
+                                        preparedStatement.executeUpdate();
                                         preparedStatement.close();
                                     } catch (SQLException e) {
                                         e.printStackTrace();

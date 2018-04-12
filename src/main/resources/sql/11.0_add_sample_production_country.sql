@@ -1,0 +1,1 @@
+insert into ProductionCountry (code, name) values ('IN', 'India');
