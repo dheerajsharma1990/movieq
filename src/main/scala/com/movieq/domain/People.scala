@@ -1,6 +1,8 @@
 package com.movieq.domain
 
-class People(id: Int, name: String, age: Int) {
+import com.movieq.domain.Gender._
 
-  override def toString: String = id + "," + name + "," + age
+class People(id: Int, name: String, gender: Gender) {
+
+  override def toString: String = id + "," + name + "," + gender
 }

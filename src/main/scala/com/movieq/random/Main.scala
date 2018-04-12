@@ -2,7 +2,7 @@ package com.movieq.random
 
 import java.time.LocalDate
 
-import com.movieq.domain.{People, ProductionCountry}
+import com.movieq.domain.{Gender, People, ProductionCountry}
 
 import scala.language.dynamics
 
@@ -91,7 +91,7 @@ object Main {
       movie.id.is(124)
       .or(movie.rating.greaterThen(7.2)
         .or(movie.productionCountry.is(new ProductionCountry("US", "America"))))
-      .and(people.name.contains("Salman Khan").or(movie.people.contains(new People(1, "Shahrukh", 52))))
+      .and(people.name.contains("Salman Khan").or(movie.people.contains(new People(1, "Shahrukh", Gender.Male))))
       .or(movie.releaseDate().between(LocalDate.now().minusYears(1), LocalDate.now()))
     ))
   }

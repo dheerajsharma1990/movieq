@@ -1,1 +1,1 @@
-create table People (id int, name varchar(255), age int, primary key (id));
+create table People (id int, name varchar(255), gender varchar(50), primary key (id));
