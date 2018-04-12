@@ -1,5 +1,7 @@
 package com.movieq.db;
 
+import org.h2.tools.Server;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,7 +13,8 @@ import java.sql.SQLException;
 
 public class H2Runner {
     public static void main(String[] args) throws Exception {
-        Connection connection = DriverManager.getConnection("jdbc:h2:~/movieq", "sa", "");
+        Server server = Server.createTcpServer(new String[]{"-tcpAllowOthers"}).start();
+        Connection connection = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test", "sa", "");
         Path sqlDirectoryPath = Paths.get(H2Runner.class.getClassLoader().getResource("sql").toURI());
         connection.prepareStatement("DROP ALL OBJECTS").execute();
 
@@ -37,5 +40,6 @@ public class H2Runner {
                 });
 
         connection.close();
+        server.stop();
     }
 }
