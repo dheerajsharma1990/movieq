@@ -12,9 +12,12 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class H2Runner {
+
+    private static final String MOVIEQ_DB_PATH = "./target/movieqdb";
+
     public static void main(String[] args) throws Exception {
         Server server = Server.createTcpServer(new String[]{"-tcpAllowOthers"}).start();
-        Connection connection = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test", "sa", "");
+        Connection connection = DriverManager.getConnection("jdbc:h2:tcp://localhost:9092/" + MOVIEQ_DB_PATH, "sa", "");
         Path sqlDirectoryPath = Paths.get(H2Runner.class.getClassLoader().getResource("sql").toURI());
         connection.prepareStatement("DROP ALL OBJECTS").execute();
 
