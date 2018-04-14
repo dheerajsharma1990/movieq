@@ -4,7 +4,7 @@ import java.io.File
 
 import scala.io.Source
 
-class SFile(val majorVersion: Int, val minorVersion: Int, sqlFile: File) extends Ordered[SFile] {
+class SQLFile(private val majorVersion: Int, private val minorVersion: Int, sqlFile: File) extends Ordered[SQLFile] {
 
   def getSQLs: List[String] = {
     val bufferedSource = Source.fromFile(sqlFile)
@@ -15,7 +15,7 @@ class SFile(val majorVersion: Int, val minorVersion: Int, sqlFile: File) extends
     }
   }
 
-  override def compare(that: SFile): Int = {
+  override def compare(that: SQLFile): Int = {
     if (majorVersion == that.majorVersion) {
       minorVersion - that.minorVersion
     } else {
@@ -24,13 +24,13 @@ class SFile(val majorVersion: Int, val minorVersion: Int, sqlFile: File) extends
   }
 }
 
-object SFile {
+object SQLFile {
 
   private val sqlFileRegex = """(\d+).(\d+)_([a-zA-Z0-9]+).sql""".r
 
-  def apply(file: File): SFile = {
+  def apply(file: File): SQLFile = {
     file.getName match {
-      case sqlFileRegex(major, minor, _) => new SFile(major.toInt, minor.toInt, file)
+      case sqlFileRegex(major, minor, _) => new SQLFile(major.toInt, minor.toInt, file)
       case _ => throw new IllegalArgumentException("Incorrect SQL File Format." + file.getName)
     }
   }
