@@ -2,7 +2,7 @@ package com.movieq.db
 
 import java.sql.Connection
 
-class SQLFileExecutor (connection: Connection) {
+class SQLFileExecutor(connection: Connection) {
 
   def execute(sqlFile: SQLFile): Unit = {
     sqlFile.getSQLs
