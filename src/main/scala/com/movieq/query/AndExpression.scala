@@ -6,4 +6,5 @@ class AndExpression(leftExpression: Expression, rightExpression: Expression) ext
 
   override def toString: String = leftExpression + " " + and + " " + rightExpression
 
+  override def toMySQL: String = "( " + leftExpression.toMySQL + " and " + rightExpression.toMySQL + " )"
 }

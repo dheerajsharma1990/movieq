@@ -6,4 +6,6 @@ class ContainsExpression(id: String, value: String) extends Expression {
 
   override def toString: String = id + " " + contains + " " + value
 
+  override def toMySQL: String = id + " like " + "%" + value + "%"
+
 }

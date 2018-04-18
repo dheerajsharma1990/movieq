@@ -6,4 +6,5 @@ class IsExpression(id: String, value: String) extends Expression {
 
   override def toString: String = id + " " + is + " " + value
 
+  override def toMySQL: String =  id + " = " + value
 }

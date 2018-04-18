@@ -6,4 +6,6 @@ class OrExpression(leftExpression: Expression, rightExpression: Expression) exte
 
   override def toString: String = leftExpression + " " + or + " " + rightExpression
 
+  override def toMySQL: String = "( " + leftExpression.toMySQL + " or " + rightExpression.toMySQL + " )"
+
 }
