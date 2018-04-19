@@ -1,6 +1,6 @@
 package com.movieq.query
 
-class ContainsExpression(id: String, value: String) extends Expression {
+class ContainsExpression(id: String, value: String) extends FilterExpression {
 
   private val contains = "contains"
 

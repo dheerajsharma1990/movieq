@@ -1,13 +1,13 @@
 package com.movieq.query
 
-class Where(expr: Expression) {
+class Where(filterExpression: FilterExpression) extends Expression {
 
   private val where = "where"
 
-  def toMySQL: String = {
-    "where" + " " + expr.toMySQL
+  override def toMySQL: String = {
+    "where" + " " + filterExpression.toMySQL
   }
 
-  override def toString: String = where + " " + expr
+  override def toString: String = where + " " + filterExpression
 
 }

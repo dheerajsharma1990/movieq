@@ -1,10 +1,10 @@
 package com.movieq.query
 
-class Search(domainObject: String, where: Where) {
+class SearchExpression(domainObject: String, where: Where) extends Expression {
 
   private val search = "search"
 
-  def toMySQL: String = {
+  override def toMySQL: String  = {
     "select * " + " from " + "movie" + " " + where.toMySQL
   }
 

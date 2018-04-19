@@ -1,6 +1,6 @@
 package com.movieq.query
 
-class AndExpression(leftExpression: Expression, rightExpression: Expression) extends Expression {
+class AndExpression(leftExpression: Expression, rightExpression: Expression) extends FilterExpression {
 
   private val and = "and"
 

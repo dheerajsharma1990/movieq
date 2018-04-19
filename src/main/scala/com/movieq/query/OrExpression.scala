@@ -1,6 +1,6 @@
 package com.movieq.query
 
-class OrExpression(leftExpression: Expression, rightExpression: Expression) extends Expression {
+class OrExpression(leftExpression: Expression, rightExpression: Expression) extends FilterExpression {
 
   private val or = "or"
 
