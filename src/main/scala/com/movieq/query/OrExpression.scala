@@ -1,11 +1,13 @@
 package com.movieq.query
 
-class OrExpression(leftExpression: Expression, rightExpression: Expression) extends FilterExpression {
+
+class OrExpression(leftExpression: FilterExpression, rightExpression: FilterExpression) extends FilterExpression {
 
   private val or = "or"
 
   override def toString: String = leftExpression + " " + or + " " + rightExpression
 
-  override def toMySQL: String = "( " + leftExpression.toMySQL + " or " + rightExpression.toMySQL + " )"
+  override def toMySQLExpression: com.movieq.query.mysql.FilterExpression = new com.movieq.query.mysql.OrExpression(leftExpression.toMySQLExpression, rightExpression.toMySQLExpression)
+
 
 }
