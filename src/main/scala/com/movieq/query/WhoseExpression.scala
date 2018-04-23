@@ -1,12 +1,12 @@
 package com.movieq.query
 
-import com.movieq.query.mysql.WhereExpression
+import com.movieq.query.sql.WhereExpression
 
 class WhoseExpression(filterExpression: FilterExpression) extends Expression {
 
   private val whose = "whose"
 
-  override def toMySQLExpression: WhereExpression = new WhereExpression(filterExpression.toMySQLExpression)
+  override def toSQLExpression: WhereExpression = new WhereExpression(filterExpression.toSQLExpression)
 
   override def toString: String = whose + " " + filterExpression
 

@@ -1,4 +1,4 @@
-package com.movieq.query.mysql
+package com.movieq.query.sql
 
 class OrExpression(leftExpression: FilterExpression, rightExpression: FilterExpression) extends FilterExpression {
 

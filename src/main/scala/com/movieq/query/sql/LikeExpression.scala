@@ -1,4 +1,4 @@
-package com.movieq.query.mysql
+package com.movieq.query.sql
 
 class LikeExpression(id: String, value: String) extends FilterExpression {
 

@@ -7,7 +7,7 @@ class OrExpression(leftExpression: FilterExpression, rightExpression: FilterExpr
 
   override def toString: String = leftExpression + " " + or + " " + rightExpression
 
-  override def toMySQLExpression: com.movieq.query.mysql.FilterExpression = new com.movieq.query.mysql.OrExpression(leftExpression.toMySQLExpression, rightExpression.toMySQLExpression)
+  override def toSQLExpression: com.movieq.query.sql.FilterExpression = new com.movieq.query.sql.OrExpression(leftExpression.toSQLExpression, rightExpression.toSQLExpression)
 
 
 }

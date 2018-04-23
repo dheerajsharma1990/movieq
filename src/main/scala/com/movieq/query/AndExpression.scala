@@ -6,6 +6,6 @@ class AndExpression(leftExpression: FilterExpression, rightExpression: FilterExp
 
   override def toString: String = leftExpression + " " + and + " " + rightExpression
 
-  override def toMySQLExpression: com.movieq.query.mysql.FilterExpression = new com.movieq.query.mysql.AndExpression(leftExpression.toMySQLExpression, rightExpression.toMySQLExpression)
+  override def toSQLExpression: com.movieq.query.sql.FilterExpression = new com.movieq.query.sql.AndExpression(leftExpression.toSQLExpression, rightExpression.toSQLExpression)
 
 }

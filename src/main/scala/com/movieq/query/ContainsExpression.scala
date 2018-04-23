@@ -1,6 +1,6 @@
 package com.movieq.query
 
-import com.movieq.query.mysql.LikeExpression
+import com.movieq.query.sql.LikeExpression
 
 class ContainsExpression(id: String, value: String) extends FilterExpression {
 
@@ -8,6 +8,6 @@ class ContainsExpression(id: String, value: String) extends FilterExpression {
 
   override def toString: String = id + " " + contains + " " + value
 
-  override def toMySQLExpression: com.movieq.query.mysql.FilterExpression = new LikeExpression(id, value)
+  override def toSQLExpression: com.movieq.query.sql.FilterExpression = new LikeExpression(id, value)
 
 }

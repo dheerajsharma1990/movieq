@@ -1,10 +1,10 @@
 package com.movieq.query
 
-import com.movieq.query.mysql.MySQLExpression
+import com.movieq.query.sql.SQLExpression
 
 trait Expression {
 
-  def toMySQLExpression: MySQLExpression
+  def toSQLExpression: SQLExpression
 
   override def toString: String
 

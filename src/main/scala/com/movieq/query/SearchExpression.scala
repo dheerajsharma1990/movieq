@@ -1,14 +1,14 @@
 package com.movieq.query
 
-import com.movieq.query.mysql.{MySQLExpression, SelectExpression}
+import com.movieq.query.sql.{SQLExpression, SelectExpression}
 
-class SearchExpression(domainObject: String, where: WhoseExpression) extends Expression {
+class SearchExpression(domainExpression: DomainExpression, whoseExpression: WhoseExpression) extends Expression {
 
   private val search = "search"
 
-  override def toMySQLExpression: MySQLExpression = new SelectExpression(domainObject, where.toMySQLExpression)
+  override def toSQLExpression: SQLExpression = new SelectExpression(domainExpression.toSQLExpression, whoseExpression.toSQLExpression)
 
-  override def toString: String = search + " " + domainObject + " " + where
+  override def toString: String = search + " " + domainExpression + " " + whoseExpression
 }
 
 object SearchExpression {

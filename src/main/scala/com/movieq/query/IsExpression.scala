@@ -1,6 +1,6 @@
 package com.movieq.query
 
-import com.movieq.query.mysql.EqualToExpression
+import com.movieq.query.sql.EqualToExpression
 
 class IsExpression(id: String, value: String) extends FilterExpression {
 
@@ -8,5 +8,5 @@ class IsExpression(id: String, value: String) extends FilterExpression {
 
   override def toString: String = id + " " + is + " " + value
 
-  override def toMySQLExpression: com.movieq.query.mysql.FilterExpression =  new EqualToExpression(id, value)
+  override def toSQLExpression: com.movieq.query.sql.FilterExpression =  new EqualToExpression(id, value)
 }
