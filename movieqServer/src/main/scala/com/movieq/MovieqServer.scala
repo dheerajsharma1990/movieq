@@ -1,6 +1,5 @@
 package com.movieq
 
-import com.movieq.query.{DomainExpression, IsExpression, SearchExpression, WhoseExpression}
 import org.eclipse.jetty.server.Server
 import org.eclipse.jetty.webapp.WebAppContext
 import org.scalatra.servlet.ScalatraListener
@@ -11,14 +10,6 @@ object MovieqServer {
 
     val server = new Server(port)
     val context = new WebAppContext()
-    val search = new SearchExpression(new DomainExpression("movie"), new WhoseExpression(
-      new IsExpression("id","325138")
-    ))
-
-    val sql = search.toSQLExpression
-
-    println(sql)
-
 
     context setContextPath "/"
     context.setResourceBase("src/main/webapp")
@@ -27,7 +18,7 @@ object MovieqServer {
 
     server.setHandler(context)
 
-    server.start
-    server.join
+    server.start()
+    server.join()
   }
 }

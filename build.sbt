@@ -5,17 +5,25 @@ lazy val defaults = Seq(
   scalaVersion := "2.12.4",
 )
 
-lazy val movieqClient = (project in file("movieq-client"))
+lazy val movieqDomain = (project in file("movieqDomain"))
   .settings(defaults: _*)
   .settings(
-    name := "movieq-client"
+    name := "movieqDomain"
   )
 
 
-lazy val movieqServer = (project in file("movieq-server"))
+lazy val movieqClient = (project in file("movieqClient"))
   .settings(defaults: _*)
   .settings(
-    name := "movieq-server",
+    name := "movieqClient"
+  )
+  .dependsOn(movieqDomain)
+
+
+lazy val movieqServer = (project in file("movieqServer"))
+  .settings(defaults: _*)
+  .settings(
+    name := "movieqServer",
     libraryDependencies ++= Seq(
       "org.slf4j" % "slf4j-api" % "1.7.5",
       "org.slf4j" % "slf4j-simple" % "1.7.5",
