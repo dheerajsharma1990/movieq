@@ -11,15 +11,6 @@ lazy val movieqDomain = (project in file("movieqDomain"))
     name := "movieqDomain"
   )
 
-
-lazy val movieqClient = (project in file("movieqClient"))
-  .settings(defaults: _*)
-  .settings(
-    name := "movieqClient"
-  )
-  .dependsOn(movieqDomain)
-
-
 lazy val movieqServer = (project in file("movieqServer"))
   .settings(defaults: _*)
   .settings(
@@ -37,4 +28,4 @@ lazy val movieqServer = (project in file("movieqServer"))
     ),
     mainClass in(Compile, run) := Some("com.javacodegeeks.multi.App")
   )
-  .dependsOn(movieqClient)
+  .dependsOn(movieqDomain)
