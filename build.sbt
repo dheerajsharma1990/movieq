@@ -5,16 +5,16 @@ lazy val defaults = Seq(
   scalaVersion := "2.12.4",
 )
 
-lazy val movieqDomain = (project in file("movieqDomain"))
+lazy val domain = (project in file("domain"))
   .settings(defaults: _*)
   .settings(
-    name := "movieqDomain"
+    name := "domain"
   )
 
-lazy val movieqServer = (project in file("movieqServer"))
+lazy val server = (project in file("server"))
   .settings(defaults: _*)
   .settings(
-    name := "movieqServer",
+    name := "server",
     libraryDependencies ++= Seq(
       "org.slf4j" % "slf4j-api" % "1.7.5",
       "org.slf4j" % "slf4j-simple" % "1.7.5",
@@ -28,4 +28,4 @@ lazy val movieqServer = (project in file("movieqServer"))
     ),
     mainClass in(Compile, run) := Some("com.javacodegeeks.multi.App")
   )
-  .dependsOn(movieqDomain)
+  .dependsOn(domain)
