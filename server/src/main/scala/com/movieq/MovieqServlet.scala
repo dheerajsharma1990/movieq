@@ -6,6 +6,9 @@ class MovieqServlet extends ScalatraServlet {
   get("/search/:query") {
     val query = params("query")
     //search movie whose id is 325138
+    //search movie whose genre name is comedy
+
+
 
     //select movie.id, movie.description, movie.rating, movie.release_date, movie.production_country_code, productionCountry.name, genre.id, genre.name
     //from Movie movie
