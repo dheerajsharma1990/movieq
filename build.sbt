@@ -24,8 +24,8 @@ lazy val server = (project in file("server"))
       "com.fasterxml.jackson.core" % "jackson-databind" % "2.9.5",
       "org.scalatra" %% "scalatra" % "2.5.4",
       "javax.servlet" % "javax.servlet-api" % "3.1.0" % "provided",
-      "org.eclipse.jetty" % "jetty-webapp" % "9.4.9.v20180320"
+      "org.eclipse.jetty" % "jetty-webapp" % "9.4.9.v20180320",
+      "org.scalatest" %% "scalatest" % "3.0.5" % "test"
     ),
-    mainClass in(Compile, run) := Some("com.javacodegeeks.multi.App")
   )
   .dependsOn(domain)
