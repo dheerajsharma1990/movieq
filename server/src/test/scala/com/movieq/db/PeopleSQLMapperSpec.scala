@@ -9,7 +9,7 @@ import org.scalatest.FlatSpec
 
 class PeopleSQLMapperSpec extends FlatSpec {
 
-  val mapper = new PeopleSQLMapper
+  val mapper = new MovieMapper
 
   val sqlResource = getClass.getClassLoader.getResource("sql")
   val movieqDbPath = "jdbc:h2:tcp://localhost:9092/./target/movieqdb"
@@ -34,13 +34,15 @@ class PeopleSQLMapperSpec extends FlatSpec {
       throw e
   }
 
-
-  "PeopleSQLMapper" should "map sql rows to People" in {
+  "MovieMapper" should "map sql rows to Movie" in {
     val connection = DriverManager.getConnection(movieqDbPath, "sa", "")
-    val statement = connection.prepareStatement("select people.id, people.name, people.gender from People people")
+    val statement = connection.prepareStatement("select movie.id, movie.title, movie.description, movie.rating, movie.release_date, productionCountry.code, productionCountry.name, " +
+      "people.id, people.name, people.gender, genre.id, genre.name from Movie movie inner join ProductionCountry productionCountry on movie.production_country_code = productionCountry.code inner join PeopleInMovie peopleInMovie on " +
+      "movie.id = peopleInMovie.movie_id inner join People people on people.id = peopleInMovie.people_id inner join GenreInMovie genreInMovie on movie.id = genreInMovie.movie_id inner join Genre genre on genre.id = genreInMovie.genre_id " +
+      "where movie.id > 0")
     val resultSet = statement.executeQuery()
-    val people = mapper.map(resultSet)
-    assert(people.size === 60)
+    val movies = mapper.map(resultSet)
+    assert(movies.size === 6)
     connection.close()
     h2Server.stop()
   }

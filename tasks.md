@@ -7,3 +7,4 @@ For my own use, this markdown based document contains list of task that I log wh
  3. Domain objects has people, genre as list.They should be set.
  4. Explore Try Success Failure of scala and use in code
  5. Jetty to receive body and url params in UTF-8. What Configurations?
+ 6. merge function (if exists) in Movie class should be made better. (check for equality etc)
