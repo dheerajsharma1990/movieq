@@ -39,8 +39,7 @@ class MovieMapper {
       }
     }.toList
       .groupBy(movie => movie.id)
-      .mapValues(movies => movies.reduce((m1, m2) => new Movie (m1.id, m1.title, m1.description, m1.rating,
-        m1.people.++(m2.people), m1.genres.++(m2.genres), m1.releaseDate, m1.productionCountry)))
+      .mapValues(movies => movies.reduce((m1, m2) => m1.merge(m2)))
       .values.toList
   }
 
